@@ -41,9 +41,7 @@ export default function Form() {
                     onChange={handleChange}
                 />
                 <button onClick={() => clear()} className="btn btn-outline-danger" type="button">Clear</button>
-                <button className="btn btn-outline-success" type="button" onClick={
-                    () => { handleSubmit() }
-                }>Submit</button>
+                <button onClick={() => handleSubmit()} className="btn btn-outline-success" type="button">Submit</button>
             </div>
             {showComponent && <Info username={value} />}
         </div>
