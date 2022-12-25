@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/github-wrapped/static/css/main.754ae12f.css",
+    "main.js": "/github-wrapped/static/js/main.a463681f.js",
+    "index.html": "/github-wrapped/index.html",
+    "main.754ae12f.css.map": "/github-wrapped/static/css/main.754ae12f.css.map",
+    "main.a463681f.js.map": "/github-wrapped/static/js/main.a463681f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.754ae12f.css",
+    "static/js/main.a463681f.js"
+  ]
+}
