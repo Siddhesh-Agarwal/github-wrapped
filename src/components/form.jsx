@@ -29,18 +29,22 @@ export default function Form() {
 
     return (
         <div>
-            <div className="input-group py-2 fs-4 mx-auto" style={{maxWidth: '48rem'}}>
-                <span className="input-group-text" id="basic-addon1">@</span>
+            <div className="input-group py-2 fs-4 mx-auto" style={{ maxWidth: '48rem' }}>
+                <span
+                    className="input-group-text d-none d-sm-block"
+                    id="basic-addon1">
+                    @
+                </span>
                 <input
                     type="text"
-                    className="form-control"
+                    className="form-control sm-rounded-start"
                     placeholder="Username"
                     aria-label="Username"
                     id="username"
                     value={value}
                     onChange={handleChange}
                 />
-                <button onClick={() => clear()} className="btn btn-outline-danger" type="button">Clear</button>
+                <button onClick={() => clear()} className="btn btn-outline-danger d-none d-sm-block" type="button">Clear</button>
                 <button onClick={() => handleSubmit()} className="btn btn-outline-success" type="button">Submit</button>
             </div>
             {showComponent && <Info username={value} />}

@@ -15,8 +15,7 @@
 .btn-outline-success:hover,
 .btn-outline-success:focus,
 .btn-outline-success:active,
-.btn-outline-success.active
-{
+.btn-outline-success.active {
     color: #fff !important;
     background-color: #007E33 !important;
     border-color: #007E33 !important;
@@ -25,9 +24,20 @@
 .btn-outline-danger:hover,
 .btn-outline-danger:focus,
 .btn-outline-danger:active,
-.btn-outline-danger.active
-{
+.btn-outline-danger.active {
     color: #fff !important;
     background-color: #CC0000 !important;
     border-color: #CC0000 !important;
+}
+
+.sm-rounded-start {
+    border-top-left-radius: 0rem !important;
+    border-bottom-left-radius: 0rem !important;
+}
+
+@media screen and (max-width: 576px) {
+    .sm-rounded-start {
+        border-top-left-radius: 0.25rem !important;
+        border-bottom-left-radius: 0.25rem !important;
+    }
 }
