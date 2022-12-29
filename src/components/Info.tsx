@@ -7,8 +7,6 @@ import { SlGlobe, SlLocationPin, SlSocialGithub, SlSocialTwitter } from 'react-i
 // The purpose of this code is to render an alert box containing a title and message
 // The title and message are passed in as props
 // The code is used by the Alert component, which is used to display alerts to the user
-// The code is used to render the title and message of the alert
-// The code is used by the Alert component
 type AlertContent = {
     title: string;
     message: string;
