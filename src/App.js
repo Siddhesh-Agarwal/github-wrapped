@@ -1,4 +1,4 @@
-import Form from "./components/form";
+import Form from "./components/form.tsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {

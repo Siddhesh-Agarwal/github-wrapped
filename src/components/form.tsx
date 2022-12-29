@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
+//@ts-ignore
 import Info from './Info.tsx';
-
 
 export default function Form() {
     // Create a state for displaying the component
-    // eslint-disable-next-line no-mixed-operators
-    const [showComponent, setShowComponent] = useState(false);
+    const [showComponent, setShowComponent] = useState<boolean>(false);
 
     // Get the value of the input field and pass it to the Info component on submit
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState<string>('')
 
     // Clear the input field on submit and pass to the addComponent
     const handleSubmit = () => {
@@ -17,8 +16,8 @@ export default function Form() {
     }
 
     // Handle the change in the input field
-    const handleChange = (e) => {
-        setValue(e.target.value.toLowerCase());
+    const handleChange = (e: any) => {
+        setValue(e.target.value);
         setShowComponent(false);
     }
 
@@ -31,13 +30,12 @@ export default function Form() {
         <div>
             <div className="input-group py-2 fs-4 mx-auto" style={{ maxWidth: '48rem' }}>
                 <span
-                    className="input-group-text d-none d-sm-block"
-                    id="basic-addon1">
+                    className="input-group-text d-none d-sm-block pe-none">
                     @
                 </span>
                 <input
                     type="text"
-                    className="form-control sm-rounded-start"
+                    className="form-control sm-rounded-start text-uppercase"
                     placeholder="Username"
                     aria-label="Username"
                     id="username"
