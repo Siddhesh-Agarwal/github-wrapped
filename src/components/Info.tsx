@@ -1,32 +1,46 @@
 // style using bootstrap
 import React from 'react';
 import { useEffect } from 'react';
-import { SlGlobe, SlSocialGithub, SlSocialTwitter } from 'react-icons/sl';
+import { SlGlobe, SlLocationPin, SlSocialGithub, SlSocialTwitter } from 'react-icons/sl';
 
-class AlertContent {
+
+// The purpose of this code is to render an alert box containing a title and message
+// The title and message are passed in as props
+// The code is used by the Alert component, which is used to display alerts to the user
+// The code is used to render the title and message of the alert
+// The code is used by the Alert component
+type AlertContent = {
     title: string;
     message: string;
-    constructor(title: string, message: string) {
-        this.title = title;
-        this.message = message;
-    }
 }
 
 function Alert(props: AlertContent) {
     return (
         <div className="alert alert-danger fade show" role="alert">
-            <p className="mb-0">
-                <strong className='text-decoration-underline'>{props.title}!</strong> {props.message}
-            </p>
+            {props.title && (
+                <Title title={props.title} />
+            )}
+            {props.message && <Message message={props.message} />}
         </div>
     );
 }
 
-class Username {
+function Title(props: {title: string}) {
+    return (
+        <p className="mb-0">
+            <strong className='text-decoration-underline'>{props.title}!</strong>
+        </p>
+    );
+}
+
+function Message(props: {message: string}) {
+    return (
+        <p className="mb-0">{props.message}</p>
+    );
+}
+
+type Username = {
     username: string;
-    constructor(username: string) {
-        this.username = username;
-    }
 }
 
 function Info(props: Username) {
@@ -40,9 +54,9 @@ function Info(props: Username) {
         fetch(`https://api.github.com/users/${username}`)
             .then((response) => response.json())
             .then((data) => setData(data))
-            // .catch((error) => {
-            //     console.error('Error:', error);
-            // });
+        // .catch((error) => {
+        //     console.error('Error:', error);
+        // });
     }, [username]);
     console.log(data);
 
@@ -53,11 +67,18 @@ function Info(props: Username) {
                     <div className='card mx-auto' style={{ maxWidth: '24rem' }}>
                         <img src={data.avatar_url} className="card-img-top border-2 border-dark pb-0 mb-1" alt={`${username}'s profile`} />
                         <div className='card-body'>
-                            <h1 className='text-dark fs-4 mb-0'>{data.name}</h1>
-                            <h2 className='mb-2 text-muted fs-6 fw-normal'>{username}</h2>
-                            <p className='card-text'></p>
+                            <h1 className='text-dark fs-4 mb-0'>
+                                {data.name}
+                            </h1>
+                            <h2 className='mb-2 text-muted fs-6 fw-normal'>
+                                {username}
+                            </h2>
+                            <p className='card-text text-body' >
+                                <span className='text-danger px-1'><SlLocationPin /></span>
+                                {data.location}
+                            </p>
                             <p className='card-text text-body'>{data.bio}</p>
-                            <hr className='text-dark'/>
+                            <hr className='text-dark' />
                             {/* Repository, Followers, Following count */}
                             <div className='d-flex justify-content-around my-2'>
                                 <div className='d-flex flex-column'>
@@ -85,7 +106,7 @@ function Info(props: Username) {
                                     <span className='text-dark fs-5'>{data.following}</span>
                                 </div>
                             </div>
-                            <hr className='text-dark'/>
+                            <hr className='text-dark' />
                             {/* Links */}
                             <div className='d-flex justify-content-around'>
                                 <a href={data.html_url} className='link-primary text-decoration-none' target='_blank' rel='noreferrer'>
@@ -97,11 +118,11 @@ function Info(props: Username) {
                                 {
                                     data.blog !== "" &&
                                     <a href={data.blog} className='link-primary text-decoration-none' target='_blank' rel='noreferrer'>
-                                    <span className='p-1'>
-                                        <SlGlobe />
-                                    </span>
-                                    Blog
-                                </a>
+                                        <span className='p-1'>
+                                            <SlGlobe />
+                                        </span>
+                                        Blog
+                                    </a>
                                 }
                                 {
                                     data.twitter_username !== null &&
