@@ -35,7 +35,7 @@ export default function Form() {
                 </span>
                 <input
                     type="text"
-                    className="form-control sm-rounded-start text-uppercase"
+                    className="form-control sm-rounded-start"
                     placeholder="Username"
                     aria-label="Username"
                     id="username"
