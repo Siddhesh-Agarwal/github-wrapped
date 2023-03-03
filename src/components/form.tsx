@@ -16,7 +16,7 @@ export default function Form() {
     }
 
     // Handle the change in the input field
-    const handleChange = (e: any) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value);
         setShowComponent(false);
     }
